@@ -1,0 +1,7 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR --export --path PATH:/home/jhow/\x2epyenv/bin\x1e/home/jhow/ani\x2dtupi/venv/bin\x1e/home/jhow/\x2elocal/bin\x1e/home/jhow/\x2eatuin/bin\x1e/usr/local/sbin\x1e/usr/local/bin\x1e/usr/bin\x1e/var/lib/flatpak/exports/bin\x1e/usr/bin/site_perl\x1e/usr/bin/vendor_perl\x1e/usr/bin/core_perl
+SETUVAR --export PYENV_ROOT:/home/jhow/\x2epyenv
+SETUVAR __fish_initialized:4300
+SETUVAR fish_greeting:\x1d
+SETUVAR fish_user_paths:/home/jhow/\x2elocal/bin

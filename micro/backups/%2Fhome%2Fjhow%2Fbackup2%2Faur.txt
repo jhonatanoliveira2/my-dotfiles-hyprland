@@ -1,0 +1,10 @@
+gallery-dl
+mkchromecast-git
+pipes.sh
+python-pywal16
+tty-clock
+vesktop
+visual-studio-code-bin
+yay
+yay-debug
+zen-browser-bin

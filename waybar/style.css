@@ -1,0 +1,217 @@
+@import url('/home/jhow/.cache/wal/colors-waybar.css');
+
+/* ── Variáveis ─────────────────────────────────────────────── */
+@define-color bg        alpha(@color0, 0.72);
+@define-color surface   alpha(@color1, 0.30);
+@define-color border    alpha(@color7, 0.09);
+@define-color text      @color7;
+@define-color accent    @color6;
+@define-color pop       @color2;
+
+/* ── Base ──────────────────────────────────────────────────── */
+* {
+    font-family: JetBrains Mono Nerd Font;
+    font-size: 14px;
+    font-weight: 600;
+    color: @text;
+    border: none;
+    outline: none;
+    min-height: 0;
+}
+
+window#waybar {
+    all: unset;
+    background: transparent;
+}
+
+/* ── Containers flutuantes ─────────────────────────────────── */
+.modules-left,
+.modules-center,
+.modules-right {
+    background: @bg;
+    border-radius: 16px;
+    border: 2px solid alpha(@color1, 0.30);
+    box-shadow: 0 0px 2px alpha(@color0, 0.55);
+    margin: 8px 25px 0 25px;
+    padding: 2px 7px;
+}
+
+.modules-center {
+    min-width: 160px;
+}
+
+/* ── Tooltip ───────────────────────────────────────────────── */
+tooltip {
+    background: alpha(@color0, 0.92);
+    border-radius: 10px;
+    border: 1px solid alpha(@color7, 0.12);
+}
+tooltip label {
+    color: @text;
+    font-size: 12px;
+    padding: 4px 10px;
+}
+
+/* ── Todos os módulos ──────────────────────────────────────── */
+#clock,
+#wireplumber,
+#custom-audio-sink,   /* ← add */
+#custom-player {
+    padding: 0 10px;
+    color: @accent;
+    border-radius: 10px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+#custom-player {
+    padding: 0 10px;
+    color: @accent;
+    border-radius: 10px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+#bluetooth,
+#custom-wallpaper,
+#custom-power,
+#custom-reboot {
+    padding: 0 10px;
+    color: alpha(@text, 0.65);  /* mesma cor dos ícones de app */
+    border-radius: 10px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* ── Hover padrão ──────────────────────────────────────────── */
+#clock:hover,
+#wireplumber:hover,
+#custom-audio-sink:hover,   /* ← add */
+#bluetooth:hover,
+#custom-wallpaper:hover {
+    background: alpha(@pop, 0.14);
+    color: @pop;
+}
+#custom-wallpaper:hover {
+    background: alpha(@pop, 0.14);
+    color: @pop;
+}
+
+/* ── Power / Reboot — cores de aviso ──────────────────────── */
+#custom-power {
+    color: alpha(@color7, 0.55);
+}
+#custom-reboot {
+    color: alpha(@color7, 0.55);
+}
+#custom-power:hover {
+    background: alpha(#ff5555, 0.18);
+    color: #ff7777;
+}
+#custom-reboot:hover {
+    background: alpha(#ffb86c, 0.18);
+    background: alpha(#ffb86c, 0.18);
+    background: alpha(#ffb86c, 0.18);
+    color: #ffcc88;
+}
+
+/* ── Grupo de apps ─────────────────────────────────────────── */
+#group-apps {
+    background: @surface;
+    border-radius: 10px;
+    border: 1px solid @border;
+    padding: 0 4px;
+    margin: 4px 2px;
+}
+
+#custom-kitty,
+#custom-discord,
+#custom-thunar,
+#custom-code,
+#custom-zen-browser,
+#custom-control {
+    padding: 0 9px;
+    color: alpha(@text, 0.65);
+    border-radius: 8px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+#custom-kitty:hover,
+#custom-discord:hover,
+#custom-thunar:hover,
+#custom-code:hover,
+#custom-zen-browser:hover,
+#custom-control:hover {
+    background: alpha(@pop, 0.14);
+    color: @pop;
+}
+
+/* ── Workspaces ────────────────────────────────────────────── */
+#workspaces {
+    padding: 0 4px;
+}
+#workspaces button {
+    all: unset;
+
+    padding: 5px 13px;
+    margin: 0px 3px;
+
+    background: alpha(@pop,0.18);
+    border-radius: 12px;
+
+    transition: all 0.25s ease;
+}
+
+/* Esconde número, mostra só o ponto */
+
+#workspaces button:hover {
+    background: alpha(@pop, 0.45);
+    min-width: 18px;
+    border-radius: 10px;
+}
+
+#workspaces button.active {
+    background: @pop;
+    min-width: 18px;
+    border-radius: 12px;
+}
+
+/* ── Relógio ───────────────────────────────────────────────── */
+#clock {
+    letter-spacing: 0.3px;
+    padding: 0 12px 0 4px;
+}
+
+/* ── Player ────────────────────────────────────────────────── */
+#custom-player {
+    background: @surface;
+    border-radius: 14px;
+    border: 1px solid alpha(@accent, 0.18);
+    padding: 1px 12px;
+    margin: 4px 4px 4px 8px;
+    font-size: 13px;
+    color: @accent;
+}
+
+#custom-player:hover {
+    background: alpha(@pop, 0.18);
+    border-color: alpha(@pop, 0.30);
+    color: @pop;
+}
+
+/* ── Volume mutado ─────────────────────────────────────────── */
+#wireplumber.muted {
+    color: alpha(@text, 0.35);
+}
+
+/* ── Bluetooth conectado ───────────────────────────────────── */
+#bluetooth.connected {
+    color: @pop;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    border-radius: 12px;
+}
+
+
+
+
+

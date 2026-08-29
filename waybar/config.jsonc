@@ -1,0 +1,132 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 0,
+  "spacing": 0,
+  "reload_style_on_change": true,
+  "modules-left": ["clock", "wireplumber", "custom/audio-sink", "custom/player"],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": [
+    "group/apps",
+    "custom/wallpaper",
+    "bluetooth",
+    "custom/reboot",
+    "custom/power"
+  ],
+  /* ── Workspaces ────────────────────────────── */
+  "hyprland/workspaces": {
+    "persistent-workspaces": {
+      "*": [1, 2, 3, 4, 5]
+    }
+  },
+  /* ── App Launcher Group ────────────────────── */
+  "group/apps": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/kitty",
+      "custom/discord",
+      "custom/thunar",
+      "custom/code",
+      "custom/zen-browser",
+      "custom/control"
+    ]
+  },
+  /* ── App Modules ───────────────────────────── */
+  "custom/kitty": {
+    "format": "󰞷 ",
+    "on-click": "kitty",
+    "tooltip-format": "Terminal (Kitty)"
+  },
+  "custom/audio-sink": {
+      "exec": "~/.config/waybar/audio-sink.sh",
+      "return-type": "json",
+      "interval": 3,
+      "signal": 8,
+      "on-click": "~/.config/waybar/audio-sink-switch.sh",
+      "tooltip": true
+  },
+  "custom/discord": {
+    "format": "  ",
+    "on-click": "vesktop",
+    "tooltip-format": "Discord (Vesktop)"
+  },
+  "custom/thunar": {
+    "format": "󰉋 ",
+    "on-click": "thunar",
+    "tooltip-format": "Arquivos"
+  },
+  "custom/code": {
+    "format": " ",
+    "on-click": "code",
+    "tooltip-format": "VS Code"
+  },
+  "custom/zen-browser": {
+    "format": " ",
+    "on-click": "zen-browser",
+    "tooltip-format": "Zen Browser"
+  },
+  "custom/control": {
+    "format": "󰒓 ",
+    "on-click": "kitty micro ~/.config/hypr/hyprland.conf",
+    "tooltip-format": "Editar Hyprland"
+  },
+  /* ── Status Modules ────────────────────────── */
+  "wireplumber": {
+    "format": "  {volume}%",
+    "format-muted": "󰖁",
+    "tooltip-format": "Volume: {volume}%",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+  },
+  "bluetooth": {
+    "format": "󰂯 ",
+    "format-off": "󰂲 ",
+    "format-disabled": "󰂲 ",
+    "format-connected": "󰂱 {device_alias}",
+    "format-connected-battery": "󰂱 {device_alias}  {device_battery_percentage}% ",
+    "tooltip-format": "Bluetooth desligado\nMeio: ligar",
+    "tooltip-format-connected": "{device_alias}",
+    "tooltip-format-connected-battery": "{device_alias}  {device_battery_percentage}% ",
+    "on-click": "blueman-manager",
+    "on-click-right": "bluetoothctl power off",
+    "on-click-middle": "bluetoothctl power on",
+    "interval": 30,
+    "max-length": 30
+  },
+  "custom/wallpaper": {
+    "format": " ",
+    "on-click": "~/.config/waybar/wallpaper_script.sh",
+    "tooltip-format": "Trocar wallpaper"
+  },
+  "custom/reboot": {
+    "format": "󰑓",
+    "on-click": "reboot",
+    "tooltip-format": "Reiniciar"
+  },
+  "custom/power": {
+    "format": " 󰤆",
+    "on-click": "shutdown -h now",
+    "tooltip-format": "Desligar"
+  },
+  /* ── Clock ─────────────────────────────────── */
+  "clock": {
+    "format": "  {:%H:%M}",
+    "locale": "pt_BR.UTF-8",
+    "tooltip-format": "{:%A, %d %B %Y — %H:%M:%S}",
+    "interval": 1
+  },
+  /* ── Player ────────────────────────────────── */
+  "custom/player": {
+    "exec": "~/.config/waybar/player.sh",
+    "interval": 1,
+    "return-type": "json",
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl next",
+    "on-click-middle": "playerctl previous",
+    "on-scroll-up": "playerctl position 5+",
+    "on-scroll-down": "playerctl position 5-",
+    "tooltip": true,
+    "max-length": 55
+  }
+}
+
+
